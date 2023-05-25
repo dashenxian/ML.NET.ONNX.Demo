@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ML.NET.ONNX.Demo.Emotion;
 
 namespace ML.NET.ONNX.Demo
 {
@@ -22,7 +23,8 @@ namespace ML.NET.ONNX.Demo
     /// </summary>
     public partial class MainWindow : Window
     {
-        private RTFPrediction prediction = new RTFPrediction();
+        private RTFPrediction rtfPrediction = new RTFPrediction();
+        private EmotionPrediction emotionPrediction = new EmotionPrediction();
         public MainWindow()
         {
             InitializeComponent();
@@ -34,11 +36,21 @@ namespace ML.NET.ONNX.Demo
             if (dialog.ShowDialog().Value)
             {
                 //image.Source =bitma;
-                var result = prediction.Predict(dialog.FileName);
+                var result = rtfPrediction.Predict(dialog.FileName);
                 if (result != null)
                 {
                     image.Source = result;
                 }
+            }
+        }
+
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            if (dialog.ShowDialog().Value)
+            {
+                var result = emotionPrediction.Predict(dialog.FileName);
+                MessageBox.Show(result);
             }
         }
     }

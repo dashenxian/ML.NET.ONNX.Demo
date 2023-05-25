@@ -10,7 +10,9 @@ namespace ML.NET.ONNX.Demo.Ultraface
 {
     public class RTFInput
     {
-        [ImageType(640, 480)]
+        public const int ImageWidth = 640;
+        public const int ImageHeight = 480;
+        [ImageType(ImageHeight, ImageWidth)]
         public MLImage Image { get; set; }
     }
 }

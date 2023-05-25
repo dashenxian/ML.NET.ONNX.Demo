@@ -7,11 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Button Click="Button_Click" Content="识别人脸框" />
-        <Image x:Name="image" Grid.Row="1" />
+        <TabControl Grid.Row="1">
+            <TabItem Header="TabItem">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Button Click="Button_Click" Content="识别人脸框" />
+                    <Image x:Name="image" Grid.Row="1" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5">
+                    <Button Click="Button_Click1" Content="预测表情" />
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

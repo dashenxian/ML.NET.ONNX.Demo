@@ -36,8 +36,8 @@ namespace ML.NET.ONNX.Demo.Ultraface
                 context.Transforms.ResizeImages(
                         resizing: Microsoft.ML.Transforms.Image.ImageResizingEstimator.ResizingKind.Fill, //填充Resize
                         outputColumnName: "resize", //Resize的结果放置到 data列
-                        imageWidth: 640,
-                        imageHeight: 480,
+                        imageWidth: RTFInput.ImageWidth,
+                        imageHeight: RTFInput.ImageHeight,
                         inputColumnName: nameof(RTFInput.Image) //从Image属性来源,
                     )
                     .Append(
